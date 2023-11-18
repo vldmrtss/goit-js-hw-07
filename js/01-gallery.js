@@ -18,10 +18,11 @@ galleryContainer.insertAdjacentHTML("beforeend", images.join(""));
 
 galleryContainer.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log(event.target);
-  const instance = basicLightbox.create(
-    `<img src="${event.target.dataset.source}" alt="${event.target.alt}">`
-  );
-  instance.show();
+  if (event.target.classList.contains("gallery__image")) {
+    const instance = basicLightbox.create(
+      `<img src="${event.target.dataset.source}" alt="${event.target.alt}">`
+    );
+    instance.show();
+  }
 });
 console.log(galleryItems);

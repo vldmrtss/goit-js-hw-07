@@ -3,16 +3,11 @@ import { galleryItems } from "./gallery-items.js";
 
 const galleryContainer = document.querySelector("ul.gallery");
 const images = galleryItems.map(({ preview, original, description }) => {
-  return `<div class="gallery__item">  
-<a class="gallery__link" href="${original}">  
-<img  
-class="gallery__image"  
-src="${preview}"  
-data-source="${original}"  
-alt="${description}"  
-/>  
-</a>  
-</div>`;
+  return `<li class="gallery__item">
+  <a href="${original}">
+    <img class="gallery__image" src="${preview}" alt="${description}" />
+  </a>
+</li>`;
 });
 galleryContainer.insertAdjacentHTML("beforeend", images.join(""));
 
